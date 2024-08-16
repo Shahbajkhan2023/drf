@@ -1,5 +1,9 @@
 from pathlib import Path
 
+import django
+from django.utils.translation import gettext
+django.utils.translation.ugettext = gettext
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -8,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-awfi1#lvg5oc*m)z0^$$gt#+=urrzka=l)(taryl%a5nb0kzeh'
+SECRET_KEY = 'django-insecure-m7coq-)t1ovn$z*93=xr^3!m(#1+vz8i*u)zw1=r)t)w_jn-j*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,9 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
-    'rest_framework.authtoken',
     'myapp',
 ]
 
@@ -41,7 +43,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'token_project.urls'
+ROOT_URLCONF = 'jwt_token.urls'
 
 TEMPLATES = [
     {
@@ -59,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'token_project.wsgi.application'
+WSGI_APPLICATION = 'jwt_token.wsgi.application'
 
 
 # Database
@@ -108,6 +110,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

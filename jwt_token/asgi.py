@@ -1,5 +1,5 @@
 """
-ASGI config for token_project project.
+ASGI config for jwt_token project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'token_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jwt_token.settings')
 
 application = get_asgi_application()
